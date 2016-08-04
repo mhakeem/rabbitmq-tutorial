@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 require "bunny"
-require_relative "environment"
+require_relative "../config/environment"
 
 REMOTE_IP = ENV['RABBITMQ_IP']
 USER      = ENV['RABBITMQ_USER']
