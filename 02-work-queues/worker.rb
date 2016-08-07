@@ -3,14 +3,9 @@
 
 require "bunny"
 require_relative "../config/environment"
+require_relative "../config/rabbitmq"
 
-conf = {
-  host:     ENV['RABBITMQ_IP'],
-  user:     ENV['RABBITMQ_USER'],
-  password: ENV['RABBITMQ_PASS']
-}
-
-conn = Bunny.new(conf)
+conn = Bunny.new(Config::RabbitMQ::CONF)
 conn.start
 
 # channel
@@ -23,9 +18,9 @@ ch.prefetch(1)
 puts " [*] Waiting for messages. To exit press CTRL+C"
 
 begin
-    # manual_ack is to ensure that if a wokrer crashes, the message
-    # is not lost and is handed to another active worker.
-    q.subscribe(manual_ack: true, block: true) do |delivery_info, properties, body|
+  # manual_ack is to ensure that if a wokrer crashes, the message
+  # is not lost and is handed to another active worker.
+  q.subscribe(manual_ack: true, block: true) do |delivery_info, properties, body|
     puts " [X] Received #{body}"
 
     # immitate some work

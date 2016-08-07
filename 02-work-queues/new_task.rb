@@ -3,14 +3,9 @@
 
 require "bunny"
 require_relative "../config/environment"
+require_relative "../config/rabbitmq"
 
-conf = {
-  host:     ENV['RABBITMQ_IP'],
-  user:     ENV['RABBITMQ_USER'],
-  password: ENV['RABBITMQ_PASS']
-}
-
-conn = Bunny.new(conf)
+conn = Bunny.new(Config::RabbitMQ::CONF)
 conn.start
 
 # channel
