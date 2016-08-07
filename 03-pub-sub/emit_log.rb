@@ -2,7 +2,6 @@
 #!/usr/bin/env ruby
 
 require "bunny"
-require_relative "../config/environment"
 require_relative "../config/rabbitmq"
 
 conn = Bunny.new(Config::RabbitMQ::CONF)

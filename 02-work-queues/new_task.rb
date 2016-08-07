@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 require "bunny"
-require_relative "../config/environment"
 require_relative "../config/rabbitmq"
 
 conn = Bunny.new(Config::RabbitMQ::CONF)

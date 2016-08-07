@@ -1,3 +1,5 @@
+require_relative "../config/environment"
+
 module Config
   module RabbitMQ
     CONF = {
