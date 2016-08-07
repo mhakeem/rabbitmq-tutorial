@@ -79,4 +79,5 @@ Temporary Items
 # Don't include my ruby environment
 environment.rb
 
-.ruby-*
+.ruby-version
+.ruby-gemset
