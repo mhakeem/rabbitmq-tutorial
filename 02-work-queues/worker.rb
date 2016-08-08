@@ -22,7 +22,7 @@ begin
   q.subscribe(manual_ack: true, block: true) do |delivery_info, properties, body|
     puts " [X] Received #{body}"
 
-    # immitate some work
+    # imitate some work
     sleep 1.0
     ch.ack(delivery_info.delivery_tag)
   end
